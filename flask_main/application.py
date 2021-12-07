@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, flash, redirect, url_for, send_from_directory
 from flask.json import jsonify
-from simple_recommender import get_recommendations, movies
+from simple_recommender import get_recommendations, api_data
 from werkzeug.utils import secure_filename
 import os
 
@@ -67,8 +67,8 @@ def index():
     return render_template('site.html')
 
 @app.route('/api')
-def api_all_movies():
-    return jsonify(movies)
+def api_all():
+    return jsonify(api_data)
 
 
 # This is the route that will be used to access the application
