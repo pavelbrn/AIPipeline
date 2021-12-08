@@ -49,7 +49,7 @@ def create_feature_label_array(image_list):
     return feature_images
 
 
-# Create labels where each malignant image is labeled as 1
+# Create labels y where each malignant image is labeled as 1
 X_malignant = create_feature_label_array(malignant_images)
 y_malignant = np.ones(len(X_malignant))
 
