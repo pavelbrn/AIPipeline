@@ -117,6 +117,7 @@ model.summary()
 batch_size = 100
 epochs = 1
 
+
 model.compile(loss="binary_crossentropy", optimizer="adam", metrics=["accuracy"])
 
 model.fit(X_train, y_train, batch_size=batch_size, epochs=epochs, validation_split=0.1)
