@@ -2,7 +2,8 @@ import tensorflow as tf
 from tensorflow.keras import layers
 from tensorflow import keras
 import os
-from tensorflow.keras.preprocessing import image
+#from tensorflow.keras.preprocessing import image
+from keras.preprocessing import image
 import numpy as np
 from PIL import Image
 from sklearn.model_selection import train_test_split
@@ -37,7 +38,7 @@ def extract_images(image_directory: str):
 benign_images = extract_images(image_dir_benign)
 malignant_images = extract_images(image_dir_malignant)
 
-# Create X_malignant
+# Convert images to numpy array
 def create_feature_label_array(image_list):
     '''Return a numpy array of all images'''
     feature_images= []
@@ -123,4 +124,4 @@ model.compile(loss="binary_crossentropy", optimizer="adam", metrics=["accuracy"]
 model.fit(X_train, y_train, batch_size=batch_size, epochs=epochs, validation_split=0.1)
 
 
-model.save("docker_alpha_model.h5")
+model.save("patho_alpha_model.h5")
