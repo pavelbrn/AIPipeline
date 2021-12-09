@@ -1,3 +1,5 @@
 /flask_main/uploads/*
-
 !/flask_main/uploads/.gitkeep
+
+ai_trainer/data_prostate/images
+
