@@ -1,5 +1,6 @@
 /flask_main/uploads/*
 !/flask_main/uploads/.gitkeep
 
-ai_trainer/colon_data/
+ai_trainer/colon_data/*
+!/ai_trainer/colon_data/.gitkeep
 
