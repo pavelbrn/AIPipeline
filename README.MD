@@ -2,7 +2,7 @@
 
 
 The following project will use a data pipeline to connect a website
-to a trained COnvolutional Neural network on a cloud server.
+with a backend pretrained deep learning model. 
 
 My pretrained convolutional neural network classifies images of prostate pathology. The original CNN will use an Inception V3 model comined with an augmentation algorithm to train the model.
 
