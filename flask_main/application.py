@@ -1,3 +1,4 @@
+import re
 from flask import Flask, render_template, request, flash, redirect, url_for, send_from_directory
 from flask.json import jsonify
 from cnn_model import make_prediction
@@ -33,10 +34,10 @@ def upload_file():
             flash('No selected file')
             return redirect(request.url)
         if file and allowed_file(file.filename):
-            #filename = secure_filename(file.filename)
-            #file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             #return redirect(url_for('download_file', name=filename))
-            result = make_prediction('uploads/imagetest.png')
+            result = make_prediction('uploads/'+filename)
             print(request.args)
             return render_template('results.html',typed= result)
     return render_template('file_upload.html')
@@ -61,7 +62,8 @@ def hello_world():
 # This is the route that will be used to access the application
 @app.route('/result')
 def recommender():
-    result = make_prediction('uploads/imagetest.png')
+    #result = make_prediction('uploads/imagetest.png')
+    result = request.args.get('result')
     print(request.args)
     return render_template('results.html',typed= result)
 
