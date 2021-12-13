@@ -10,6 +10,6 @@ COPY . ./
 RUN pip install -r requirements.txt 
 
 # Run the web server upon startup with eight threads, the entry point is application.py
-CMD exec gunicorn --bind :8081 --workers 1 --threads 8 --timeout 0 application:app
+CMD exec gunicorn --bind :8081 --workers 1 --threads 8 --timeout 0 st_lit:app
 
 #CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 application:app

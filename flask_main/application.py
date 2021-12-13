@@ -37,6 +37,7 @@ def upload_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             #return redirect(url_for('download_file', name=filename))
+            
             result = make_prediction('uploads/'+filename)
             print(request.args)
             return render_template('results.html',typed= result)
