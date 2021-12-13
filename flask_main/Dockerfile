@@ -5,7 +5,7 @@ WORKDIR /app
 # migrate all local files in the computer to the remote container
 #ENV APP /app
 #COPY . ./
-
+COPY requirements.txt ./requirements.txt
 # Use pip to install the project requirements
 RUN pip install -r requirements.txt 
 EXPOSE 8501
