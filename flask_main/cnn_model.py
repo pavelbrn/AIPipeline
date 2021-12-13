@@ -14,8 +14,9 @@ from tensorflow.keras.applications.inception_v3 import InceptionV3
 
 # flask_main/imagetest.png
 def make_prediction(img_path):
-    # colon_CNN_model_dummy
-    new_mod = keras.models.load_model("neptune_ai.h5", compile=False)
+    # colon_CNN_model_dummy - for EC deployment or for Ubuntu testing
+    # neptune_ai - for MacOS M1(Metal) testing, other models wont work on metal
+    new_mod = keras.models.load_model("colon_CNN_model_dummy.h5", compile=False)
     # Image.open("flask_main/imagetest.png")
     ext_img = image.load_img(img_path, target_size=(120, 120))
 
