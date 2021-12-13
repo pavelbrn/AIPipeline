@@ -16,7 +16,7 @@ from tensorflow.keras.applications.inception_v3 import InceptionV3
 def make_prediction(img_path):
     # colon_CNN_model_dummy - for EC deployment or for Ubuntu testing
     # neptune_ai - for MacOS M1(Metal) testing, other models wont work on metal
-    new_mod = keras.models.load_model("colon_CNN_model_dummy.h5", compile=False)
+    new_mod = keras.models.load_model("colon_CNN_model_main.h5", compile=False)
     # Image.open("flask_main/imagetest.png")
     ext_img = image.load_img(img_path, target_size=(120, 120))
 
@@ -29,7 +29,7 @@ def make_prediction(img_path):
     print(pred_test)
     return pred_test
 
-#make_prediction("uploads/imagetest.png")
+
 
 
 
