@@ -2,6 +2,9 @@
 !/flask_main/uploads/.gitkeep
 !/flask_main/uploads/imagetest.png
 
+.list.swp
+.DS_Store
+
 ai_trainer/colon_data/*
 !/ai_trainer/colon_data/.gitkeep
 
