@@ -27,7 +27,7 @@ def make_prediction(img_path):
     print(pred_test)
     return pred_test
 
-make_prediction("uploads/imagetest.png")
+#make_prediction("uploads/imagetest.png")
 
 
 
