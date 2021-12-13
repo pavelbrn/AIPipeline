@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, flash, redirect, url_for, send_from_directory
 from flask.json import jsonify
-from simple_recommender import get_recommendations, api_data
+from cnn_model import make_prediction
+#from simple_recommender import get_recommendations, api_data
 from werkzeug.utils import secure_filename
 import os
+
 
 UPLOAD_FOLDER = './uploads/'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
@@ -31,9 +33,12 @@ def upload_file():
             flash('No selected file')
             return redirect(request.url)
         if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for('download_file', name=filename))
+            #filename = secure_filename(file.filename)
+            #file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            #return redirect(url_for('download_file', name=filename))
+            result = make_prediction('uploads/imagetest.png')
+            print(request.args)
+            return render_template('results.html',typed= result)
     return render_template('file_upload.html')
 
 
@@ -49,18 +54,16 @@ app.add_url_rule(
 # This is the route that will be used to access the application
 @app.route('/')
 def hello_world():
-    show_recc = get_recommendations()
+    #show_recc = get_recommendations()
     return 'Hello, World!'
 
- 
+# test image path: flask_main/imagetest.png
 # This is the route that will be used to access the application
-@app.route('/recommender')
+@app.route('/result')
 def recommender():
+    result = make_prediction('uploads/imagetest.png')
     print(request.args)
-    top3 = get_recommendations()
-    # Jinda2 is the name of the template
-    typed = "you typed " + request.args['genre']
-    return render_template('results.html',typed= typed)
+    return render_template('results.html',typed= result)
 
 @app.route('/new')
 def index():
@@ -68,7 +71,9 @@ def index():
 
 @app.route('/api')
 def api_all():
-    return jsonify(api_data)
+    #jsonify(api_data)
+   
+    return  'API page'
 
 
 # This is the route that will be used to access the application

@@ -10,10 +10,24 @@ from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
 from tensorflow.keras import Model
 
+from tensorflow.keras.applications.inception_v3 import InceptionV3
 
+# flask_main/imagetest.png
+def make_prediction(img_path):
+    new_mod = keras.models.load_model("../ai_trainer/colon_CNN_model_dummy.h5", compile=False)
+    # Image.open("flask_main/imagetest.png")
+    ext_img = image.load_img(img_path, target_size=(120, 120))
 
-new_mod = keras.models.load_model("flask_main/neptune_ai.h5")
-new_mod.summary()
+    data_img = np.asarray( ext_img )
+    data = data_img.reshape(1, 120, 120, 3)/255.0
+    print(data.shape)
+    pred_test= new_mod.predict(data)
+    #new_mod.summary()#
+
+    print(pred_test)
+    return pred_test
+
+make_prediction("uploads/imagetest.png")
 
 
 
