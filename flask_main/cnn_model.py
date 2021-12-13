@@ -14,7 +14,7 @@ from tensorflow.keras.applications.inception_v3 import InceptionV3
 
 # flask_main/imagetest.png
 def make_prediction(img_path):
-    new_mod = keras.models.load_model("../ai_trainer/colon_CNN_model_dummy.h5", compile=False)
+    new_mod = keras.models.load_model("colon_CNN_model_dummy.h5", compile=False)
     # Image.open("flask_main/imagetest.png")
     ext_img = image.load_img(img_path, target_size=(120, 120))
 
@@ -27,7 +27,7 @@ def make_prediction(img_path):
     print(pred_test)
     return pred_test
 
-#make_prediction("uploads/imagetest.png")
+make_prediction("uploads/imagetest.png")
 
 
 
