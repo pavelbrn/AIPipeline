@@ -1,5 +1,5 @@
 version: '3'
 services:
 
-  flask_app:
+  streamlit_app:
     build: .
