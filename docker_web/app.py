@@ -5,6 +5,7 @@ from cnn_model import make_prediction
 from cnn_model import make_streamlit_prediction_colon
 from cnn_model import make_streamlit_prediction_skin
 from PIL import Image 
+import time
 
 # port 8501 is the default port used by streamlit applications
 # reference:
@@ -14,6 +15,13 @@ from PIL import Image
 # Deep Learning Pathology Lab
 
 '''
+# This is a placeholder for the image
+# if this is not used then the old image will setill be displayed
+# even when switching between the contents pages
+placeholder = st.empty()
+allowed_image_types = ['png', 'jpg','jpeg']
+
+switch_flag = False
 
 st.markdown('*Project Developer: Pavel Boza Zegarra*')  
 
@@ -38,9 +46,9 @@ For model details, code and tests please see my Jupyter Notebook:
 - https://github.com/pavelbrn/PathologyAIPipeline/blob/master/ai_trainer/colonCNN.ipynb
 '''
     with st.container(): main_text
-    allowed_image_types = ['png', 'jpg','jpeg']
-    uploaded_file = st.file_uploader("Drag a .png, .jpg or .jpeg image here to upload, the score will be calculated:", type=allowed_image_types)
-
+    
+    uploaded_file = st.file_uploader("Drag a .png, .jpg or .jpeg image2 here to upload, the score will be calculated:", type=allowed_image_types)
+    
     if uploaded_file is not None:
         
         img = Image.open(uploaded_file)
@@ -53,6 +61,12 @@ For model details, code and tests please see my Jupyter Notebook:
         prediction = str( int(prediction[0][0]*100))+'% chance this colon image is malignant'
         st.write(prediction)
         st.image(uploaded_file, use_column_width=True)
+        if switch_flag:
+            placeholder.image(img)
+        # put the image in the placeholder
+        # otherwise it will be displayed when switching tabs
+        
+        
         
     col1, col2= st.columns(2)
     with col1:
@@ -64,8 +78,12 @@ For model details, code and tests please see my Jupyter Notebook:
         st.markdown(' ** Benign sample**')  
         st.image("streamlit_images/colonn72.jpeg")
 
+
+        
+
 # This is the page for the Skin Classifier
-elif add_selectbox == "Skin Cancer Classifier":
+if add_selectbox == "Skin Cancer Classifier":
+    switch_flag = False
     main_text = '''
     This skin cancer classifier is a pretrained deep learning model with a 
     prediction rate of about 80%. This mode has not been pretrained on Inception V3,
@@ -76,7 +94,6 @@ elif add_selectbox == "Skin Cancer Classifier":
 - https://github.com/pavelbrn/SkinCancerImageClassifier/blob/master/CNN.ipynb
 '''
     with st.container(): main_text
-    allowed_image_types = ['png', 'jpg','jpeg']
     uploaded_file = st.file_uploader("Drag a .png, .jpg or .jpeg image here to upload, the score will be calculated:", type=allowed_image_types)
 
     if uploaded_file is not None:
@@ -100,7 +117,7 @@ elif add_selectbox == "Skin Cancer Classifier":
     with col2:
         st.markdown(' ** Benign sample**')  
         st.image("streamlit_images/skin_benign.jpg")
-
+     
 
 # This is the About page    
 elif add_selectbox == "About":
@@ -118,4 +135,5 @@ Certified by the United States Educational Commission for Foreign Medical Gradua
 
     st.markdown('https://www.linkedin.com/in/pavelbz/')
 #with st.container(): main_text
+
 
