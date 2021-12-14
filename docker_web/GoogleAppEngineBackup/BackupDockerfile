@@ -1,0 +1,14 @@
+FROM tensorflow/tensorflow
+# specify the current wd
+WORKDIR /app
+
+
+COPY requirements.txt ./requirements.txt
+# Use pip to install the project requirements
+RUN pip install -r requirements.txt 
+EXPOSE 8080
+
+# migrate all local files in the computer to the remote container
+COPY . /app
+
+ENTRYPOINT ["streamlit", "run", "st_lit.py", "--server.port=8080", "--server.address=0.0.0.0"]

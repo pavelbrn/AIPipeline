@@ -9,7 +9,7 @@ from PIL import Image
 # reference:
 #  https://docs.ovh.com/gb/en/ai-training/build-use-streamlit-image/
 
-st.title("Histopythology Lab")
+st.title("Pthology Lab")
 st.write("Upload an histopathology image")
 
 

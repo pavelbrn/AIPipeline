@@ -5,7 +5,7 @@ Jinja2==3.0.3
 streamlit==1.2.0
 Flask
 gunicorn==19.9.0
-click==8.0.3
+click==7.1.2
 numpy==1.21.4
 scikit-learn==1.0.1
 gunicorn==19.9.0
