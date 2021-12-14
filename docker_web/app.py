@@ -27,7 +27,9 @@ st.markdown('*Project Developer: Pavel Boza Zegarra*')
 
 add_selectbox = st.sidebar.selectbox(
     "Contents:",
-    ("Colon Pathology Classifier", "Skin Cancer Classifier","About")
+    # Add skin cancer classifier for futre projects
+    #"Skin Cancer Classifier",
+    ("Colon Pathology Classifier", "About")
 )
 
 # This is the page for the Pathology classifier
