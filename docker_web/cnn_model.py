@@ -33,7 +33,7 @@ def make_prediction(img_path):
 #make_prediction("uploads/imagetest.png")
 
 
-def make_streamlit_prediction(reshaped_numpy):
+def make_streamlit_prediction_colon(reshaped_numpy):
     # colon_CNN_model_main - for EC deployment or for Ubuntu testing
     # dummy_test_model - for MacOS M1(Metal) testing, other models wont work on metal
     new_mod = keras.models.load_model("colon_CNN_model_main.h5", compile=False)
@@ -44,7 +44,16 @@ def make_streamlit_prediction(reshaped_numpy):
     print(pred_test)
     return pred_test
 
+def make_streamlit_prediction_skin(reshaped_numpy):
+    # colon_CNN_model_main - for EC deployment or for Ubuntu testing
+    # dummy_test_model - for MacOS M1(Metal) testing, other models wont work on metal
+    new_mod = keras.models.load_model("alpha_model4.h5", compile=False)
 
+    pred_test= new_mod.predict(reshaped_numpy)
+    #new_mod.summary()#
+
+    print(pred_test)
+    return pred_test
 
 
 
