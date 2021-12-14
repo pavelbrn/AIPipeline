@@ -1,7 +1,6 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-from cnn_model import make_prediction
 from cnn_model import make_streamlit_prediction_colon
 from cnn_model import make_streamlit_prediction_skin
 from PIL import Image 
