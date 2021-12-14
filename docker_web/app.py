@@ -10,11 +10,11 @@ from PIL import Image
 #  https://docs.ovh.com/gb/en/ai-training/build-use-streamlit-image/
 
 st.title("Pthology Lab")
-st.write("Upload an histopathology image")
+st.write("Upload a histopathology image of colon tissue to get a prediction :")
 
 
-uploaded_file = st.file_uploader("Choose a file")
-#print(type(uploaded_file))
+uploaded_file = st.file_uploader("Choose or drag an image here to upload:")
+
 if uploaded_file is not None:
     st.image(uploaded_file, use_column_width=True)
     img = Image.open(uploaded_file)
