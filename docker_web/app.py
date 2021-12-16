@@ -49,7 +49,7 @@ For model details, code and tests please see my Jupyter Notebook:
 '''
     with st.container(): main_text
     
-    uploaded_file = st.file_uploader("Drag a .png, .jpg or .jpeg image2 here to upload, the score will be calculated:", type=allowed_image_types)
+    uploaded_file = st.file_uploader("Drag a .png, .jpg or .jpeg image here to upload, the score will be calculated:", type=allowed_image_types)
     
     if uploaded_file is not None:
         
