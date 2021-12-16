@@ -34,17 +34,18 @@ add_selectbox = st.sidebar.selectbox(
 # This is the page for the Pathology classifier
 if add_selectbox == "Colon Pathology Classifier":
     main_text = '''
-    The following project connects this site with a backend pretrained deep learning model
+    The following project connects this site with a backend pre-trained deep learning model
     that is inside a Docker image on google cloud.
 
 The user can upload a histopathology image of a benign or malignant colon slide.
-The AI model will then classify it as being bening or malignant. My trained convolutional 
+The AI model will then classify it as being benign or malignant. My trained convolutional 
 neural network classifies only images of colorectal cancer. 
 The convolutional neural network uses an Inception V3 as a base model with added layers to improve the accuracy of the model.
 
 The AI model has a cross validation a test set score of 98% - 99% respectively.
 For model details, code and tests please see my Jupyter Notebook:
 - https://github.com/pavelbrn/PathologyAIPipeline/blob/master/ai_trainer/colonCNN.ipynb
+
 '''
     with st.container(): main_text
     
@@ -86,13 +87,14 @@ For model details, code and tests please see my Jupyter Notebook:
 if add_selectbox == "Skin Cancer Classifier":
     switch_flag = False
     main_text = '''
-    This skin cancer classifier is a pretrained deep learning model with a 
-    prediction rate of about 80%. This mode has not been pretrained on Inception V3,
+    This skin cancer classifier is a pre-trained deep learning model with a 
+    prediction rate of about 80%. This mode has not been pre-trained on Inception V3,
     but has been developed from scratch to learn about the general architecture of 
     a convolutional neural network. Unlike the Inception V3 model, which has over 300 
     lavers, this model has 7. 
     I will upgrade and augmented the architecture in the future. Check out my notebook here:
 - https://github.com/pavelbrn/SkinCancerImageClassifier/blob/master/CNN.ipynb
+
 '''
     with st.container(): main_text
     uploaded_file = st.file_uploader("Drag a .png, .jpg or .jpeg image here to upload, the score will be calculated:", type=allowed_image_types)
@@ -124,9 +126,9 @@ if add_selectbox == "Skin Cancer Classifier":
 elif add_selectbox == "About":
     main_text = '''
 Berlin based Canadian. Applying data science and my programming skills in the medical field and beyond. 
-I have excellent medical domain knowledge with 7 years of applied clinical experience in Anesthesia, Intensive Care Unit, Emergency Medicine and Internal Medicine. 
-13 years of medical training and am fully licensed to practice medicine in the European Union. 
-Certified by the United States Educational Commission for Foreign Medical Graduates.
+I have excellent medical domain knowledge with 7 years of applied clinical experience in Anesthesia, Intensive Care Unit, Emergency Medicine and Internal Medicine, as well as  
+13 years of medical training and am fully licensed to practice medicine in the European Union.
+I have also been Certified by the United States Educational Commission for Foreign Medical Graduates.
 
        '''
     with st.container(): main_text   
@@ -134,7 +136,8 @@ Certified by the United States Educational Commission for Foreign Medical Gradua
     st.markdown('GitHub:')
     st.markdown('https://github.com/pavelbrn')
 
-    st.markdown('https://www.linkedin.com/in/pavelbz/')
-#with st.container(): main_text
+    st.markdown('LinkedIn:')
++   st.markdown('https://www.linkedin.com/in/pavelbz/')
+
 
 
