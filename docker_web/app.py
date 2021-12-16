@@ -137,7 +137,7 @@ I have also been Certified by the United States Educational Commission for Forei
     st.markdown('https://github.com/pavelbrn')
 
     st.markdown('LinkedIn:')
-+   st.markdown('https://www.linkedin.com/in/pavelbz/')
+    st.markdown('https://www.linkedin.com/in/pavelbz/')
 
 
 
